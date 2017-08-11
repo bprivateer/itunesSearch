@@ -1,0 +1,42 @@
+#main{
+background-color: ;
+justify-content: center;
+
+  margin-top: 70px;
+}
+#content{
+  background-color: purple;
+  font-family: sans-serif;
+}
+
+#row1{
+  display: flex;
+  /*background-color: white;*/
+  justify-content: center;
+  padding:30px;
+  border-bottom: black solid 1px;
+  justify-content: center;
+}
+
+#container{
+  display: flex;
+  /*flex-flow:column wrap;*/
+  justify-content: center;
+}
+
+#row2{
+  border: solid black 1px;;
+  border-radius: 8px;
+  height: 300px;
+  width: 200px;
+  display: flex;
+  background-color: white;
+  flex-direction: column;
+  justify-content: center;
+  font-family: sans-serif;
+  align-items: center;
+}
+
+a{
+  color:black;
+}
