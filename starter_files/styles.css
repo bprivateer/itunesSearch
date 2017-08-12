@@ -1,42 +1,58 @@
-#main{
-background-color: ;
-justify-content: center;
-
-  margin-top: 70px;
+body {
+  background-image:url("butterfly.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
-#content{
-  background-color: purple;
+header {
+  padding: 0;
+  margin: 0;
+
+}
+section {
+  display: flex;
+  justify-content: center;
+
+}
+
+#main {
   font-family: sans-serif;
 }
-
-#row1{
-  display: flex;
-  /*background-color: white;*/
-  justify-content: center;
-  padding:30px;
-  border-bottom: black solid 1px;
-  justify-content: center;
+h1 {
+  font-family: sans-serif;
+  text-align: center;
+  color: white;
+}
+h2 {
+  font-size: 1em;
 }
 
-#container{
+#row1 {
+  border-bottom: black solid 1px;
+  display: flex;
+  height: 100px;
+  justify-content: center;
+  margin-bottom: 100px;
+  padding:30px;
+}
+
+#row2{
   display: flex;
   /*flex-flow:column wrap;*/
   justify-content: center;
 }
 
-#row2{
+#container{
+  background-color: rgba(0, 0, 0, 0.5);
   border: solid black 1px;;
   border-radius: 8px;
-  height: 300px;
+  color: white;
+  font-size: 1em;
+  height: 200px;
   width: 200px;
   display: flex;
-  background-color: white;
-  flex-direction: column;
+  flex-flow: row wrap;
   justify-content: center;
   font-family: sans-serif;
   align-items: center;
-}
-
-a{
-  color:black;
 }

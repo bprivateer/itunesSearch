@@ -1,72 +1,37 @@
-/*
-  Here is a rough idea for the steps you could take:
-*/
-
-// 1. First select and store the elements you'll be working with
-// 2. Create your `submit` event for getting the user's search term
-// 3. Create your `fetch` request that is called after a submission
-// 4. Create a way to append the fetch results to your page
-// 5. Create a way to listen for a click that will play the song in the audio play
-
-let container = document.getElementById('container');
+let main = document.getElementById('main');
 let input = document.getElementById('search');
 let form = document.getElementById('searchForm');
+let row2 = document.getElementById('row2');
+let container = document.getElementById('container');
+let audio = document.getElementById('music-player');
+
 
 form.addEventListener("submit", function(){
-  console.log("value");
+  event.preventDefault();})
 
-
-  let search = "https://itunes.apple.com/search?term=" + input.value + "&limit=25";
+  let search = "https://itunes.apple.com/search?term=" + input.value + "&limit=20";
 
 fetch(search)
 
-  .then(
-
-    function(response) {
-
-      if (response.status !== 200) {
-        console.log(response.status);
-        return;
-      }
+  .then(function(response) {
+      input.value = '';
+    
       response.json().then(function(data) {
         console.log("Here is the data:", data);
-      });
+        for (var i = 0; i < 20; i ++){
+
+
+        row2.innerHTML += `<div id="container"><h2>${data.results[i].artistName}<br>${data.results[i].trackName}</h2><br>
+        <img src="${data.results[i].artworkURL100}"></div>
+        `
+        container.addEventListener("click", function(event){
+          console.log(event);
+          audio.setAttribute("src", `${data.results[i].previewUrl}`)
+        })
+       }
+      })
     }
   )
   .catch(function(err) {
     console.log("Fetch Error :-S", err);
   });
-
-
-  // fetch("https://itunes.apple.com/term?=jack+johnson")
-  // .then(function(response) {
-  //   console.log(response);
-  //   response.json().then(function(data) {
-  //     console.log(data);
-      // for (var i = 0; i < 8; i++ ){
-      //   if (data.results[i].thumbnail === ""){
-      //     container.innerHTML += `<div id="row2"><h3><a href="${data.results[i].href}">${data.results[i].title}</a></h3><br>
-      //     <img src="http://via.placeholder.com/100x100"></div>
-      //     `
-      //   } else {
-      //     container.innerHTML += `<div id="row2"><h3><a href="${data.results[i].href}">${data.results[i].title}</a></h3><br>
-      //     <img src="${data.results[i].thumbnail}"></div>
-      //     `
-      //
-      //   }
-      //
-      //
-      // }
-      // console.log(search);
-      // console.log(data.results);
-//     });
-//   }
-// )
-// .catch(function(err) {
-//   console.log("Fetch Error :-S", err);
-// });
-//
-//
-// console.log("doneeeeeeee");
-
-})
