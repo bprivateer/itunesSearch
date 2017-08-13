@@ -50,24 +50,14 @@ fetch(search)
         viewContent.appendChild(track);
         viewContent.appendChild(image);
 
-        viewContent.value = i;
-         viewContent.addEventListener('click', function(event){
-          playSong(event.target.value);
-        })
-        function playSong(index){
-          let songToPlay = data.results[index].previewUrl;
-          audio.src = songToPlay;
-          audio.load();
+        let music = data.results[i].previewUrl;
+        document.getElementById("row2").addEventListener("click",function(e) {
+	      audio.src = music;
+        console.log("Anchor element clicked!");
+
+         });
+
         }
-
-
-        // row2.innerHTML += `<div id="container"><h2>${data.results[i].artistName}<br>${data.results[i].trackName}</h2><br>
-        // <img src="${data.results[i].artworkUrl60}"></div>
-        // `
-        //  container.addEventListener("click", function(event){
-        //    audio.setAttribute("src", `${data.results[i].previewUrl}`)
-        //  })
-}
       });
     }
   )
