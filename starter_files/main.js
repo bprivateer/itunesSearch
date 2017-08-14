@@ -12,12 +12,14 @@ let main = document.getElementById('main');
 let input = document.getElementById('search');
 let form = document.getElementById('searchForm');
 let row2 = document.getElementById('row2');
-let container = document.getElementById('container');
+// let container = document.getElementsByClass('container');
+let container = document.getElementsByClassName('container')
 let audio = document.getElementById('music-player');
 
 
 
 form.addEventListener("submit", function(){
+  row2.innerHTML = "";
   event.preventDefault();
 
   let search = "https://itunes.apple.com/search?term=" + input.value + "&limit=20";
