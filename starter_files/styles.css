@@ -42,7 +42,7 @@ h2 {
   justify-content: center;
 }
 
-#container{
+.container{
   background-color: rgba(0, 0, 0, 0.5);
   border: solid black 1px;;
   border-radius: 8px;

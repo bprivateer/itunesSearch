@@ -36,24 +36,34 @@ fetch(search)
         console.log("Here is the data:", data);
         for (var i = 0; i < 20; i ++){
 
+
+
         let viewContent = document.createElement('div');
-        viewContent.setAttribute("id", container);
+        viewContent.setAttribute("class", "container");
+
         let image =document.createElement('img');
         image.setAttribute("src", `${data.results[i].artworkUrl60}`)
+
         let artist = document.createElement('h3');
         artist.textContent = `${data.results[i].artistName}`;
-        let track = document.createElement('h4');
-        track.textContent = `${data.results[i].trackName}`
 
-        row2.appendChild(viewContent);
+        let track = document.createElement('h4');
+        track.textContent = `${data.results[i].trackName}`;
+
+
         viewContent.appendChild(artist);
         viewContent.appendChild(track);
         viewContent.appendChild(image);
+        row2.appendChild(viewContent);
+        //  let contain = document.getElementById('container');
 
         let music = data.results[i].previewUrl;
-        document.getElementById("row2").addEventListener("click",function(e) {
-	      audio.src = music;
-        console.log("Anchor element clicked!");
+        viewContent.addEventListener("click",function(e) {
+
+        audio.setAttribute("src", music);
+
+	      // audio.src = music;
+        console.log("element clicked!");
 
          });
 
